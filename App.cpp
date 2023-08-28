@@ -35,6 +35,11 @@ void App::processEvent()
 	{
 		if (event.type == sf::Event::Closed)
 			window.close();
+		navLeft.processEvent(event, window);
+		navRight.processEvent(event, window);
+
+		
+
 	}
 
 }

@@ -24,6 +24,7 @@ public:
 	void render(sf::RenderWindow& window);
 	void removeElement();
 	void addElement(Element);
+	void processEvent(sf::Event event, sf::RenderWindow& window);
 	
 };
 
