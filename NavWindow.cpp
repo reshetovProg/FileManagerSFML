@@ -12,9 +12,16 @@ NavWindow::NavWindow(sf::Vector2f position, sf::Vector2f size):
 {
 	rectangle.setFillColor(sf::Color::White);
 	rectangle.setPosition(position);
-	rectangle.setOutlineColor(sf::Color::Black);
-	rectangle.setOutlineThickness(2);
 	inputField.setText("lorem");
+
+	for (int i = 0; i < 4; i++) {
+		fields.push_back(Field(sf::Vector2f(size.x, BUTTON_SIZE),
+			sf::Vector2f(position.x, position.y+(i+1)*(BUTTON_SIZE+2)),
+			sf::Color::Color(130, 78, 100, 255),
+			sf::Color::Color(255, 255, 255, 255),
+			24));
+		fields[fields.size()-1].setText("lorem2");
+	}
 	
 }
 
@@ -22,15 +29,19 @@ void NavWindow::render(sf::RenderWindow& window)
 {
 	window.draw(rectangle);
 	inputField.render(window);
+	for (auto el : fields) {
+		
+		el.render(window);
+	}
 }
 
 
 
-void NavWindow::removeElement()
+void NavWindow::removeField()
 {
 }
 
-void NavWindow::addElement(Element)
+void NavWindow::addField(Field field)
 {
 }
 
@@ -46,11 +57,19 @@ void NavWindow::processEvent(sf::Event event, sf::RenderWindow& window)
 		else {
 			inputField.setActive(false);
 		}
+		for (auto& x : fields) {
+
+			if (x.getRectangle().getGlobalBounds().contains(localPosition)) {
+				x.setActive(true);
+			}
+			else {
+				x.setActive(false);
+			}
+		}
 	}
 	if (inputField.getActive()) {
 		if (event.type == sf::Event::TextEntered)
 		{
-			std::cout << "in type.event" << std::endl;
 			if (event.KeyPressed)
 			{
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace)) {
@@ -61,7 +80,6 @@ void NavWindow::processEvent(sf::Event event, sf::RenderWindow& window)
 				}
 				else {
 					char buf = static_cast<char>(event.text.unicode);
-					std::cout << buf<< std::endl;
 					inputField.setText(inputField.getText() + buf);
 				}
 			}
@@ -69,3 +87,10 @@ void NavWindow::processEvent(sf::Event event, sf::RenderWindow& window)
 	}
 	
 }
+
+Field* NavWindow::getActiveField()
+{
+	return activeField;
+}
+
+

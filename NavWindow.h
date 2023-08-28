@@ -1,13 +1,12 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "Element.h"
 #include "Field.h"
 #include "InputField.h"
 #include <vector>
 class NavWindow
 {
-	Element* activeElement = nullptr;
-	std::vector<Element> elements;
+	Field* activeField = nullptr;
+	std::vector<Field> fields;
 
 	sf::RectangleShape rectangle;
 	sf::Font font;
@@ -22,9 +21,10 @@ class NavWindow
 public:
 	NavWindow(sf::Vector2f position, sf::Vector2f size);
 	void render(sf::RenderWindow& window);
-	void removeElement();
-	void addElement(Element);
+	void removeField();
+	void addField(Field field);
 	void processEvent(sf::Event event, sf::RenderWindow& window);
+	Field* getActiveField();
 	
 };
 

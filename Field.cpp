@@ -13,8 +13,6 @@ Field::Field(sf::Vector2f size, sf::Vector2f position, sf::Color colorBack, sf::
 	this->position = position;
 	rectangle.setFillColor(colorBack);
 	rectangle.setPosition(position);
-	rectangle.setOutlineColor(colorFont);
-	rectangle.setOutlineThickness(2);
 	text.setFillColor(colorFont);
 	text.setCharacterSize(fontSize);
 	text.setPosition(position.x+10, position.y + BUTTON_SIZE / 2 - fontSize / 2);

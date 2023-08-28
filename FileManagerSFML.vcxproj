@@ -141,7 +141,6 @@
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Button.cpp" />
-    <ClCompile Include="Element.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="FileManagerSFML.cpp" />
     <ClCompile Include="InputField.cpp" />
@@ -152,7 +151,6 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="Config.h" />
-    <ClInclude Include="Element.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="InputField.h" />
     <ClInclude Include="NavWindow.h" />
