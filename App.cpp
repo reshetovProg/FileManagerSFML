@@ -51,8 +51,7 @@ void App::processEvent()
 		if (event.type == sf::Event::Closed)
 			window.close();
 
-		navLeft.processEvent(event, window);
-		navRight.processEvent(event, window);
+	
 		if (event.type == sf::Event::MouseButtonPressed) {
 
 			sf::Vector2f localPosition(event.mouseButton.x, event.mouseButton.y);
@@ -67,6 +66,17 @@ void App::processEvent()
 					sf::Color buf = buttons[i].getBackColor();
 					buttons[i].changeBackColor(buttons[i].getFontColor());
 					buttons[i].setFontColor(buf);
+					switch (i) {
+					case 0:
+						operation = "C";
+						break;
+					case 1:
+						operation = "M";
+						break;
+					case 2:
+						operation = "D";
+						break;
+					}
 					
 				}
 			}
@@ -90,6 +100,14 @@ void App::processEvent()
 				}
 			}
 		}
+
+		if (operation == "D") {
+			navLeft.removeField();
+			navRight.removeField();
+			operation = "";
+		}
+		navLeft.processEvent(event, window);
+		navRight.processEvent(event, window);
 		
 
 	}

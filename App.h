@@ -14,6 +14,8 @@ private:
 	NavWindow navLeft;
 	NavWindow navRight;
 	std::vector <Button> buttons;
+	std::string operation = "";
+
 
 public:
 	App();

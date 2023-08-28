@@ -39,6 +39,12 @@ void NavWindow::render(sf::RenderWindow& window)
 
 void NavWindow::removeField()
 {
+	for (int i = 0; i < fields.size(); i++) {
+		if (fields[i].getActive()) {
+			fields.erase(fields.begin() + i);
+			break;
+		}
+	}
 }
 
 void NavWindow::addField(Field field)
