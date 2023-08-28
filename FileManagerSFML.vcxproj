@@ -145,7 +145,6 @@
     <ClCompile Include="FileManagerSFML.cpp" />
     <ClCompile Include="InputField.cpp" />
     <ClCompile Include="NavWindow.cpp" />
-    <ClCompile Include="UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
@@ -154,7 +153,6 @@
     <ClInclude Include="Field.h" />
     <ClInclude Include="InputField.h" />
     <ClInclude Include="NavWindow.h" />
-    <ClInclude Include="UI.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

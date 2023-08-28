@@ -3,16 +3,17 @@
 #include "UI.h"
 #include "NavWindow.h"
 #include "Config.h"
-
+#include "Button.h"
+#include <vector>
 
 
 class App
 {
 private:
 	sf::RenderWindow window;
-	UI buttons;
 	NavWindow navLeft;
 	NavWindow navRight;
+	std::vector <Button> buttons;
 
 public:
 	App();
