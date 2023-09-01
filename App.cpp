@@ -116,7 +116,8 @@ void App::processEvent()
 
 void App::update()
 {
-	
+	navLeft.updateFields();
+	navRight.updateFields();
 
 	
 

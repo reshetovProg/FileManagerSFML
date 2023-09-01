@@ -6,6 +6,8 @@
 class NavWindow
 {
 	Field* activeField = nullptr;
+	std::string newPath = "";
+	std::string activeText = "";
 	std::vector<Field> fields;
 
 	sf::RectangleShape rectangle;
@@ -25,6 +27,9 @@ public:
 	void addField(Field field);
 	void processEvent(sf::Event event, sf::RenderWindow& window);
 	Field* getActiveField();
+	void createFields(std::vector<std::string>& fieldTexts);
+	void updateFields();
+	//void updateField();
 	
 };
 
